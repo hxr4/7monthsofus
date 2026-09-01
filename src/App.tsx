@@ -1,4 +1,9 @@
 import { AmbientBackground } from './components/AmbientBackground'
+import { Opening } from './components/Opening'
+import { StorySections } from './components/StorySections'
+import { AnuSection } from './components/AnuSection'
+import { UsSection } from './components/UsSection'
+import { SevenMonths } from './components/SevenMonths'
 import { Letter } from './components/Letter'
 import { Ending } from './components/Ending'
 
@@ -8,10 +13,15 @@ function App() {
       <AmbientBackground />
       <div className="site-shell__content">
         <header className="topbar page-width">
-          <span className="eyebrow">letter / ending</span>
-          <span className="status-dot" aria-label="Letter and ending active" />
+          <span className="eyebrow">private / 7 months</span>
+          <span className="status-dot" aria-label="Anniversary site active" />
         </header>
 
+        <Opening />
+        <StorySections />
+        <AnuSection />
+        <UsSection />
+        <SevenMonths />
         <Letter />
         <Ending />
       </div>
