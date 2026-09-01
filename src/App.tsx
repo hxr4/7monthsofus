@@ -7,6 +7,7 @@ import { SevenMonths } from './components/SevenMonths'
 import { QuizExperience } from './components/QuizExperience'
 import { Letter } from './components/Letter'
 import { Ending } from './components/Ending'
+import { GiftReveal } from './components/GiftReveal'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <QuizExperience />
         <Letter />
         <Ending />
+        <GiftReveal />
       </div>
     </main>
   )
