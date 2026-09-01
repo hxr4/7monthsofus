@@ -1,4 +1,5 @@
 import { letterData } from '../data/letter'
+import { ScrollReveal } from './ScrollReveal'
 
 function renderLetterText(text: string) {
   const parts = text.split('*')
@@ -8,10 +9,10 @@ function renderLetterText(text: string) {
 export function Letter() {
   return (
     <section className="letter-section page-width" aria-labelledby="letter-title">
-      <div className="letter-section__header">
+      <ScrollReveal className="letter-section__header">
         <span className="eyebrow">the letter</span>
         <h2 id="letter-title">anu,</h2>
-      </div>
+      </ScrollReveal>
       <div className="letter-body">
         {letterData.paragraphs.map((paragraph, index) => {
           const isBeat = ['"oh."', '"what the fuck."', 'yeah.', 'you.', "it's you."].includes(paragraph)

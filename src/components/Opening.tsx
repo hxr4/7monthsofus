@@ -53,7 +53,7 @@ export function Opening() {
           aria-label={state === 'open' ? 'Opening revealed' : 'Hold or tap to reveal the opening'}
         >
           <span className="opening__instruction">{state === 'open' ? 'resolved' : 'hold.'}</span>
-          <span className="opening__number" aria-live="polite">{display}</span>
+          <span key={display} className="opening__number" aria-live="polite">{display}</span>
           {state === 'open' && <span className="opening__unit">months</span>}
         </button>
         <h1 id="opening-title" className="sr-only">Seven months</h1>

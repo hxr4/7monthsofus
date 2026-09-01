@@ -3,8 +3,6 @@ import { achievementWord, correctMicrocopy, quizQuestions, secretContent } from 
 
 type QuizState = 'quiz' | 'answerReveal' | 'foodWrongReveal' | 'foodPunchline' | 'achievementWord' | 'secretPrompt' | 'portalTransition' | 'suspense' | 'countdown' | 'secretReveal' | 'complete'
 
-const answerRevealDuration = 1700
-
 export function QuizExperience() {
   const [state, setState] = useState<QuizState>('quiz')
   const [questionIndex, setQuestionIndex] = useState(0)
@@ -121,7 +119,7 @@ export function QuizExperience() {
   if (state === 'secretReveal') return <section className="quiz-scene quiz-scene--secret" aria-labelledby="secret-title"><p id="secret-title" className="secret-reveal">{secretContent.reveal}</p><p className="secret-aside">{secretContent.aside}</p></section>
 
   return (
-    <section className="quiz-section page-width" aria-labelledby="quiz-title">
+    <section className="quiz-section page-width" aria-labelledby="quiz-title" key={question.id}>
       <div className="quiz-section__header">
         <span className="eyebrow">the quiz / {String(questionIndex + 1).padStart(2, '0')} / 07</span>
         <h2 id="quiz-title">how well do you know me?</h2>
