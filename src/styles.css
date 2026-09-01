@@ -65,6 +65,7 @@ h2 { margin: 32px 0 16px; max-width: 11ch; font-size: clamp(2rem, 5vw, 3.6rem); 
 .letter-body em { color: var(--ivory); font-style: italic; }
 .letter-beat { margin-block: clamp(72px, 12vw, 160px) !important; color: var(--ivory) !important; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2.25rem, 7vw, 5.4rem) !important; line-height: .95 !important; letter-spacing: -.035em !important; }
 .letter-beat.scroll-reveal { transform: translateY(36px) scale(.88); filter: blur(14px); transition-duration: 1300ms; }
+.letter-beat.scroll-reveal--visible { transform: translateY(0) scale(1); filter: blur(0); }
 .letter-body p.scroll-reveal { transition-duration: 1050ms; }
 .letter-beat--sequence { margin-block: 28px !important; font-size: clamp(2rem, 6vw, 4.4rem) !important; }
 .letter-beat--closing { margin-top: clamp(100px, 16vw, 220px) !important; margin-bottom: 0 !important; }

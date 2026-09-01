@@ -27,7 +27,6 @@ export function SevenMonths() {
             >
               <span className="timeline__marker" aria-hidden="true" />
               <div className="timeline__card">
-                <span className="eyebrow">{month.label}</span>
                 <h3>{month.memoryLine}</h3>
                 {month.detail && <p className="month-slot__detail">{month.detail}</p>}
               </div>
