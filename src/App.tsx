@@ -4,6 +4,7 @@ import { StorySections } from './components/StorySections'
 import { AnuSection } from './components/AnuSection'
 import { UsSection } from './components/UsSection'
 import { SevenMonths } from './components/SevenMonths'
+import { QuizExperience } from './components/QuizExperience'
 import { Letter } from './components/Letter'
 import { Ending } from './components/Ending'
 
@@ -22,6 +23,7 @@ function App() {
         <AnuSection />
         <UsSection />
         <SevenMonths />
+        <QuizExperience />
         <Letter />
         <Ending />
       </div>
