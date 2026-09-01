@@ -28,15 +28,13 @@ export function Ending() {
   }, [])
 
   return (
-    <section className="ending-section page-width" aria-labelledby="ending-title">
+    <section className={`ending-section page-width ${endingData.endingPhoto ? 'ending-section--with-photo' : 'ending-section--without-photo'}`} aria-labelledby="ending-title">
       <div className="ending-section__timer" aria-live="off">
         <span className="eyebrow">since february 1, 2026</span>
         <p className="ending-section__elapsed">{elapsed}</p>
         <p className="ending-section__timer-label">{endingData.timerLabel}</p>
       </div>
-      <div className={`ending-visual ${endingData.endingPhoto ? 'ending-visual--photo' : 'ending-visual--placeholder'}`} aria-label={endingData.endingPhoto ? endingData.endingPhoto.alt : 'Ending visual placeholder; no photo selected yet'}>
-        {endingData.endingPhoto ? <img src={endingData.endingPhoto.src} alt={endingData.endingPhoto.alt} /> : <span aria-hidden="true" />}
-      </div>
+      {endingData.endingPhoto && <div className="ending-visual ending-visual--photo"><img src={endingData.endingPhoto.src} alt={endingData.endingPhoto.alt} /></div>}
       <h2 id="ending-title" className="ending-section__final-line">{endingData.finalLine}</h2>
     </section>
   )

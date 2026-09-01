@@ -5,9 +5,9 @@ export type FramePreset = 'portrait' | 'landscape' | 'near-square'
 export interface StoryBeat {
   id: string
   label: string
-  title: string
+  beat?: string
   body: string
-  tone?: 'quiet' | 'humorous' | 'restrained'
+  tone?: 'opening' | 'quiet' | 'plain' | 'restrained'
 }
 
 export interface SummitDay {
@@ -21,7 +21,7 @@ export interface SummitDay {
 export interface MonthSlot {
   id: string
   label: string
-  dateLabel: string
+  dateLabel?: string
   photo?: PhotoAsset
   memoryLine?: string
   detail?: string
@@ -31,38 +31,37 @@ export interface MonthSlot {
 export const storyBeats: StoryBeat[] = [
   {
     id: 'beginning',
-    label: 'the beginning',
-    title: 'deeksharambh',
-    body: "you were on siva's team. i was on a different one. siva thought we'd suit each other and showed me you. then i got your instagram through him.",
+    label: "deeksharambh · siva's team · the instagram",
+    beat: 'oh.',
+    body: "she was on siva's team. i was somewhere else entirely. he thought we'd suit each other, so he showed me who she was. that was the whole plan. i got her instagram through him and somehow decided that was a good enough foundation to build on.",
+    tone: 'opening',
   },
   {
     id: 'mess',
-    label: 'the mess',
-    title: 'a terrible plan',
-    body: "i asked friends to help me talk to you. they acted weird, creeped you out, and made everything worse. the apology was mine to make. somehow, it became the start of our friendship.",
-    tone: 'humorous',
+    label: 'a terrible plan',
+    body: "getting her instagram was the easy part. talking to her was not. so i did what any reasonable person would do and got my friends involved. they made it so much worse — acted weird, creeped her out, turned a crush into a small disaster. the apology was mine to make, even for things i technically didn't do. somehow that apology is the reason we became friends at all.",
+    tone: 'plain',
   },
   {
     id: 'distance',
-    label: 'the distance',
-    title: 'backing off',
-    body: "when i learned you had a boyfriend, i tried to create some distance out of respect. then i found myself missing you.",
+    label: 'backing off',
+    body: "then i found out she had a boyfriend. so i did the respectful thing and tried to create some distance. it worked, technically. i just also missed her the entire time, which is how i found out how much of this had already stopped being nothing.",
     tone: 'restrained',
   },
   {
     id: 'january-8',
-    label: 'january 8',
-    title: 'something real',
-    body: "you told me you'd broken up. you were hurting, and you opened up to me. i listened, reassured you, and stayed. somewhere in that, i started seeing a future.",
+    label: 'something real',
+    beat: "she told me she'd broken up.",
+    body: "she was hurting, and she opened up to me anyway. i listened. i stayed. somewhere in that, i started seeing a future i hadn't let myself imagine before.",
     tone: 'quiet',
   },
 ]
 
 export const summitDays: SummitDay[] = [
-  { id: 'summit-29', dateLabel: 'jan 29, 2026', status: 'placeholder' },
-  { id: 'summit-30', dateLabel: 'jan 30, 2026', status: 'placeholder' },
-  { id: 'summit-31', dateLabel: 'jan 31, 2026', status: 'placeholder' },
-  { id: 'summit-01', dateLabel: 'feb 1, 2026', status: 'placeholder' },
+  { id: 'summit-29', dateLabel: 'jan 29, 2026', memoryLine: 'concerts, and the first sense that this trip was different.', status: 'ready' },
+  { id: 'summit-30', dateLabel: 'jan 30, 2026', memoryLine: "more time together than we'd ever had before. closer, without either of us naming it.", status: 'ready' },
+  { id: 'summit-31', dateLabel: 'jan 31, 2026', memoryLine: 'being protective. taking care of her. just existing next to her for days.', status: 'ready' },
+  { id: 'summit-01', dateLabel: 'feb 1, 2026', memoryLine: 'everything that had been building became impossible to ignore.', status: 'ready' },
 ]
 
 const photo = (asset: Omit<PhotoAsset, 'status'> & { width: number; height: number }): PhotoAsset & { width: number; height: number; preset: FramePreset } => {
@@ -81,10 +80,10 @@ export const middlePhotos = [
 
 export const sevenMonths: MonthSlot[] = [
   { id: 'month-1', label: 'month 01', dateLabel: 'feb 1, 2026', memoryLine: 'becoming a couple', status: 'ready' },
-  ...Array.from({ length: 6 }, (_, index) => ({
-    id: `month-${index + 2}`,
-    label: `month ${String(index + 2).padStart(2, '0')}`,
-    dateLabel: 'content needed',
-    status: 'placeholder' as const,
-  })),
+  { id: 'month-2', label: 'month 02', memoryLine: 'driving classes.', detail: "early mornings and evenings just to watch each other head back. she stayed at my place before her learner's test.", status: 'ready' },
+  { id: 'month-3', label: 'month 03', memoryLine: 'the accidental kiss.', detail: 'the old pg. she was kissing my cheek, i turned for hers, and we somehow ended up kissing on the lips instead. neither of us planned it.', status: 'ready' },
+  { id: 'month-4', label: 'month 04', memoryLine: 'vaazha 2.', detail: "our first movie together. we went, watched it, came back, slept. nothing dramatic happened. that's kind of the point.", status: 'ready' },
+  { id: 'month-5', label: 'month 05', memoryLine: 'the proposal.', detail: "she'd never had a proper proposal, so i got down on one knee at the old pg. she half-knew something was coming and was still surprised. there's no photo. some things are just ours.", status: 'ready' },
+  { id: 'month-6', label: 'month 06', memoryLine: 'us.', detail: "the bullying, the rage-baiting, judging strangers together, her saying 'you hate me' and making me spend ten minutes proving i don't. being fully, stupidly comfortable being weird around each other.", status: 'ready' },
+  { id: 'month-7', label: 'month 07', memoryLine: 'still figuring it out.', detail: "we're not perfect. we argue, we hurt each other sometimes. i'm learning to communicate instead of disappearing. we still choose each other anyway.", status: 'ready' },
 ]

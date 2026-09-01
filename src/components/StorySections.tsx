@@ -4,14 +4,12 @@ import { ScrollReveal } from './ScrollReveal'
 export function StorySections() {
   return (
     <section className="story-sections page-width" aria-label="The story so far">
-      {storyBeats.map((beat, index) => (
+      {storyBeats.map((beat) => (
         <ScrollReveal className={`story-beat story-beat--${beat.tone ?? 'default'}`} key={beat.id}>
           <span className="eyebrow">{beat.label}</span>
-          {beat.id === 'beginning' ? <p className="story-beat__fact">deeksharambh / siva's team / instagram</p> : <h2>{beat.title}</h2>}
-          {beat.id === 'beginning' && <p className="story-beat__oh">oh.</p>}
+          {beat.tone === 'opening' && <p className="story-beat__oh">{beat.beat}</p>}
+          {beat.tone === 'quiet' && <h2 className="story-beat__quiet-beat">{beat.beat}</h2>}
           <p className="story-beat__body">{beat.body}</p>
-          {beat.id === 'mess' && <div className="mess-line" aria-hidden="true"><span /> <span /> <span /></div>}
-          {beat.id === 'distance' && <div className="distance-line" aria-hidden="true"><span /></div>}
         </ScrollReveal>
       ))}
 
@@ -26,7 +24,7 @@ export function StorySections() {
           {summitDays.map((day) => (
             <div className="summit-day" key={day.id}>
               <span className="eyebrow">{day.dateLabel}</span>
-              <span className="summit-day__placeholder">photo + memory line needed</span>
+              <span className="summit-day__memory">{day.memoryLine}</span>
             </div>
           ))}
         </div>
