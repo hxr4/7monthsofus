@@ -1,15 +1,17 @@
-import { useEffect, useRef, useState, type CSSProperties, type HTMLAttributes, type PropsWithChildren } from 'react'
+import { useEffect, useRef, useState, type CSSProperties, type ElementType, type HTMLAttributes, type PropsWithChildren } from 'react'
 
-type ScrollRevealProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & {
+type ScrollRevealProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
   delay?: number
   onReveal?: () => void
+  as?: ElementType
 }
 
-export function ScrollReveal({ children, className = '', delay = 0, style, onReveal, ...props }: ScrollRevealProps) {
+export function ScrollReveal({ children, className = '', delay = 0, style, onReveal, as, ...props }: ScrollRevealProps) {
   const [visible, setVisible] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLElement>(null)
   const onRevealRef = useRef(onReveal)
   onRevealRef.current = onReveal
+  const Tag = as ?? 'div'
 
   useEffect(() => {
     const node = ref.current
@@ -30,5 +32,14 @@ export function ScrollReveal({ children, className = '', delay = 0, style, onRev
     return () => observer.disconnect()
   }, [])
 
-  return <div {...props} ref={ref} className={`scroll-reveal ${visible ? 'scroll-reveal--visible' : ''} ${className}`.trim()} style={{ ...style, '--reveal-delay': `${delay}ms` } as CSSProperties}>{children}</div>
+  return (
+    <Tag
+      {...props}
+      ref={ref}
+      className={`scroll-reveal ${visible ? 'scroll-reveal--visible' : ''} ${className}`.trim()}
+      style={{ ...style, '--reveal-delay': `${delay}ms` } as CSSProperties}
+    >
+      {children}
+    </Tag>
+  )
 }

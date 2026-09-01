@@ -17,13 +17,12 @@ export function StorySections() {
         <div className="summit-section__intro">
           <span className="eyebrow">four days</span>
           <h2 id="summit-title">summit</h2>
-          <p>jan 29 — feb 1, 2026</p>
           <p className="summit-section__body">concerts, closeness, protectiveness, and four days of getting harder to ignore.</p>
         </div>
         <div className="summit-days">
-          {summitDays.map((day) => (
+          {summitDays.map((day, index) => (
             <div className="summit-day" key={day.id}>
-              <span className="eyebrow">{day.dateLabel}</span>
+              <span className="summit-day__index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
               <span className="summit-day__memory">{day.memoryLine}</span>
             </div>
           ))}

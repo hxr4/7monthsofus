@@ -19,11 +19,17 @@ export function Letter() {
           const beatClass = paragraph === 'yeah.' || paragraph === "it's you." ? 'letter-beat--sequence' : ''
           const isClosingBeat = paragraph === 'you.' && index === letterData.paragraphs.length - 1
           return isBeat ? (
-            <p className={`letter-beat ${beatClass} ${isClosingBeat ? 'letter-beat--closing' : ''}`.trim()} key={`${paragraph}-${index}`}>
+            <ScrollReveal
+              as="p"
+              className={`letter-beat ${beatClass} ${isClosingBeat ? 'letter-beat--closing' : ''}`.trim()}
+              key={`${paragraph}-${index}`}
+            >
               {renderLetterText(paragraph)}
-            </p>
+            </ScrollReveal>
           ) : (
-            <p key={`${paragraph.slice(0, 16)}-${index}`}>{renderLetterText(paragraph)}</p>
+            <ScrollReveal as="p" key={`${paragraph.slice(0, 16)}-${index}`}>
+              {renderLetterText(paragraph)}
+            </ScrollReveal>
           )
         })}
       </div>
